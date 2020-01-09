@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Tachyons from 'tachyons';
+import Header from './components/Header.js';
+import Container from './components/Container.js'
+
 import './App.css';
 
-function App() {
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      imgs:[
+        {
+     id:1,     
+    link:'https://static.pexels.com/photos/52500/horse-herd-fog-nature-52500.jpeg',
+    desc:'Horse'
+  },
+  {
+    id:2,
+    link:'https://static.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg',
+    desc:'Elephant cub'
+  },
+  {
+    id:3,
+    link:'https://static.pexels.com/photos/213399/pexels-photo-213399.jpeg',
+    desc:'Fishes'
+  }
+      ]
+
+    }
+  }
+
+// componentDidMount() {
+//   fetch('./poze.js')
+//     .then(response=> response.json())
+//     .then(poze => this.setState({imgs:poze}))
+// }
+
+render() {
+  console.log(this.state.imgs);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="tc">
+      <Header props="Gallery"/>
+
+      <div className="Container" > {
+        this.state.imgs.map((poz) => (
+         
+           <div className="item">
+              <p className="desc"> {poz.desc} </p>
+          </div> 
+          ))
+      }
+      }
+      </div>
     </div>
   );
+}
 }
 
 export default App;
