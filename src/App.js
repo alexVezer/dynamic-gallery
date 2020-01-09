@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Tachyons from 'tachyons';
 import Header from './components/Header.js';
-import Container from './components/Container.js'
-
+import Container from './components/Container.js';
+import Poza from './components/Poza.js';
 import './App.css';
 
 class App extends Component {
@@ -45,11 +45,8 @@ render() {
 
       <div className="Container" > {
         this.state.imgs.map((poz) => (
-         
-           <div className="item">
-              <p className="desc"> {poz.desc} </p>
-          </div> 
-          ))
+            <Poza link={poz.link} desc={poz.desc} /> 
+                    ))
       }
       }
       </div>
