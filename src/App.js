@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Tachyons from 'tachyons';
 import Header from './components/Header.js';
-import Container from './components/Container.js';
 import Poza from './components/Poza.js';
 import './App.css';
 
@@ -41,9 +40,9 @@ render() {
   return (
 
     <div className="tc">
-      <Header props="Gallery"/>
+      <Header title="Gallery"/>
 
-      <div className="Container" > {
+      <div className="container" > {
         this.state.imgs.map((poz) => (
             <Poza link={poz.link} desc={poz.desc} /> 
                     ))
